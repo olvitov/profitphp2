@@ -13,6 +13,8 @@ use App\Db;
 
 class User
 {
+    public static $table = 'users';
+
     public $email;
     public $name;
 
@@ -20,7 +22,7 @@ class User
     {
         $db = new Db();
         return $db->query(
-            'SELECT * FROM users',
+            'SELECT * FROM ' . self::$table,
             'App\Models\User'
 
         );

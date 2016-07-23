@@ -1,17 +1,11 @@
 <?php
 
-class First
-{
-    public static $test = 1;
+require __DIR__ . '/autoload.php';
 
-    public static function test()
-    {
-        echo static::$test;
-    }
-}
+$s = \App\Singleton::instance();
+$s->counter = 1;
 
-class Second extends First
-{
-    public static $test = 2;
-}
-echo Second::test();
+$s = \App\Singleton::instance();
+
+
+var_dump($s);

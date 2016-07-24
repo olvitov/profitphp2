@@ -36,7 +36,6 @@ sendEmail($users[1], 'Hello!');
 
 
 
-
 // $news = \App\Models\News::findAll();
 
 

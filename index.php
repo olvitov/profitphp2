@@ -8,18 +8,12 @@ require __DIR__ . '/autoload.php';
 
 
 
-$users = User::findAll();
-
-/**
- * @param \App\Model\HasEmail $user
- * @param string $message
- */
-function sendEmail(HasEmail $user, string $message)
-{
-    echo 'Почта уходит на ' . $user->email;
-}
-
-sendEmail($users[1], 'Hello!');
+$users = new User();
+$users->insert();
+$users->nic = 'vas';
+$users->name = 'Vasya';
+$users->email = 'v@pupkin.ru';
+$users->insert();
 
 
 

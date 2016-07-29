@@ -14,10 +14,16 @@ class Db
 {
     use Singleton;
     protected $dbh;
+    public $className = 'stdClass';
    protected function __construct()
     {
 
         $this->dbh = new \PDO('mysql:host=127.0.0.1; dbname=test', 'root', '');
+    }
+
+    public function setClassName($className)
+    {
+        $this->setClassName = $className;
     }
 
 
@@ -44,7 +50,7 @@ class Db
         $res = $sth->execute($params);
         if (false !== $res) {
 
-            return $sth->fetchAll(\PDO::FETCH_CLASS, $class);
+            return $sth->fetchAll(\PDO::FETCH_CLASS, $this->className);
 
         }
         return [];

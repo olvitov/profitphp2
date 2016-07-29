@@ -1,41 +1,31 @@
 <?php
 
-use App\Models\HasEmail;
-use App\Models\User;
+
 
 require __DIR__ . '/autoload.php';
 
+$user = new App\Models\User();
+$user->getEmail();
 
+$view = new App\View();
 
-
-$users = new User();
-$users->insert();
-$users->nic = 'vas';
-$users->name = 'Vasya';
-$users->email = 'v@pupkin.ru';
-$users->insert();
-
-
-
+$view->title = 'Мой крутой сайт!';
+$view->users = App\Models\User:: findAll();
+echo $view->render(__DIR__ . '/App/templates/index.php');
 
 
 
 
+// include __DIR__ . '/App/templates/index.php';
 
 
-
-
+?>
 
 
 
 
 
-// $news = \App\Models\News::findAll();
 
 
-// require __DIR__ . '/app/templates/index.php';
 
-// $users = \App\Models\User::findById([':id' == 1]);
-
-//var_dump($users);
 

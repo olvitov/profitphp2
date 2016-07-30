@@ -1,11 +1,10 @@
 <?php
 
+
+
 require __DIR__ . '/autoload.php';
 
-$s = \App\Singleton::instance();
-$s->counter = 1;
 
-$s = \App\Singleton::instance();
+$news = App\Models\News::findAll();
 
-
-var_dump($s);
+var_dump($news[3]->author);

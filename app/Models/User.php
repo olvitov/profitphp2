@@ -8,16 +8,26 @@
 
 namespace App\Models;
 
-use App\Db;
+
 use App\Model;
 
 
 class User extends Model
+    implements HasEmail
 {
     const TABLE= 'users';
 
+    public $id;
     public $email;
     public $name;
 
+    /**
+     * @deprecated
+     * @return string
+     */
 
+public function getEmail()
+{
+    return $this->email;
+}
 }

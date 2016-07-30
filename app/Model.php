@@ -33,7 +33,7 @@ abstract class Model
         return $db->query(
           'SELECT * FROM ' . static::TABLE . ' WHERE id=:id',
             [':id' => $id],
-            self::class
+            static::class
 
         );
 

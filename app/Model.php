@@ -125,11 +125,14 @@ abstract class Model
 
     public function delete()
     {
+
+
         $sql = '
             DELETE FROM ' . static::TABLE . '
             WHERE id = :id
         ';
-        $db = Db::instance();
+        $db =  Db::instance();
+
         $db->execute($sql);
     }
 

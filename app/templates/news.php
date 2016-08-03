@@ -21,11 +21,15 @@
 <h3>Шаблон News</h3>
 <table border="1" align="center" cellpadding="3" width="200">
     <tr>
-        <th>Автор новости</th>
-        <th> email</th>
+        <th>ID Новости</th>
+        <th>Заголовок</th>
+        <th>Текст новости</th>
+        <th> Автор новости</th>
         <?php foreach ($news as $article): ?>
     <tr>
-        <td><?php echo 'Пользователь: ' . $article->title; ?></td>
+        <td><a href="<?php echo 'http://profitphp2/index.php/?action=one&id=' . $article->id?>">Подробнее</a></td>
+        <td><?php echo $article->title; ?></td>
+        <td><?php echo $article->text; ?></td>
         <?php if (!empty($article->author)) :?>
            <td> Автор: <?php echo $article->author->name; ?></td>
 

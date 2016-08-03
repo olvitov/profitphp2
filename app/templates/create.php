@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=, user-scalable=, initial-scale=, maximum-scale=, minimum-scale=">
     <meta http-equiv="X-UA-Compatible" content="ie=">
-    <title>Новости</title>
+    <title><?php echo $this->title?></title>
     <!-- Bootstrap -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
 
@@ -17,17 +17,35 @@
     <![endif]-->
 </head>
 <body>
+<?php foreach ($errors as $error): ?>
+    <div class="alert alert-danger"></div>
+    <?php echo $error->getMessage() ?>
 
-<h3>Шаблон Index.php</h3>
+<?php endforeach; ?>
+
+<h3>Шаблон News</h3>
 <table border="1" align="center" cellpadding="3" width="200">
     <tr>
-        <th>Пользователь</th>
-        <th> email</th>
-        <?php foreach ($user as $item): ?>
+        <th>ID Новости</th>
+        <th>Заголовок</th>
+        <th>Текст новости</th>
+        <th> Автор новости</th>
+        <?php foreach ($news as $article): ?>
     <tr>
-        <td><?php echo 'Пользователь: ' . $item->name; ?></td>
-        <td><?php echo 'Email: ' . $item->email; ?></td>
+        <td><a href="<?php echo 'http://profitphp2/index.php/?action=one&id=' . $article->id?>">Подробнее</a></td>
+        <td><?php echo $article->title; ?></td>
+        <td><?php echo $article->text; ?></td>
+        <?php if (!empty($article->author)) :?>
+            <td> Автор: <?php echo $article->author->name; ?></td>
+
+        <?php endif ?>
+        <?php if (empty($article->author)) :?>
+            <td> Автор: <?php echo 'Нет Автора'; ?></td>
+
+        <?php endif ?>
     </tr>
+
+
 
 
     <?php endforeach; ?>

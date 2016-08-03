@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=, user-scalable=, initial-scale=, maximum-scale=, minimum-scale=">
     <meta http-equiv="X-UA-Compatible" content="ie=">
-    <title>Новости</title>
+    <title><?php echo $this->title?></title>
     <!-- Bootstrap -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
 
@@ -18,19 +18,23 @@
 </head>
 <body>
 
-<h3>Шаблон Index.php</h3>
+<h3>Пользователь</h3>
 <table border="1" align="center" cellpadding="3" width="200">
     <tr>
-        <th>Пользователь</th>
+        <th>Пользователь </th>
         <th> email</th>
-        <?php foreach ($user as $item): ?>
+
     <tr>
-        <td><?php echo 'Пользователь: ' . $item->name; ?></td>
-        <td><?php echo 'Email: ' . $item->email; ?></td>
+        <td><?php echo 'Пользователь: ' . $article->name; ?></td>
+        <td><?php echo 'Пользователь: ' . $article->email; ?></td>
+
+
+
     </tr>
 
 
-    <?php endforeach; ?>
+
+
 
     </tr>
 </table>
